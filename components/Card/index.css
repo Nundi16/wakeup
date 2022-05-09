@@ -1,0 +1,25 @@
+.computer-card {
+    min-height: 200px;
+    min-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    padding: .5rem;
+    margin: 10px;
+}
+
+.computer-card .vl {
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.636);
+    box-shadow: 0px 0px 1px gray;
+}
+
+.computer-card h2 {
+    font-weight: 100;
+}
+
+.computer-card .isOn {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: green;
+}
