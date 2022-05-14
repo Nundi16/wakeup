@@ -21,6 +21,10 @@
     width: 10px;
     height: 10px;
     border-radius: 5px;
+    background-color: rgb(68, 68, 68);
+}
+
+.computer-card .isOn.on {
     background-color: green;
     box-shadow: 0px 0px 5px green;
 }

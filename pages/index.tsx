@@ -5,25 +5,10 @@ import styles from '../styles/Home.module.css'
 import Card from '../components/Card'
 import { Computer } from '../types/index'
 import { useEffect, useState } from 'react'
+import useComputers from '../hooks/useComputers'
 
 const Home: NextPage = () => {
-  const [computers, setComputers] = useState<Array<Computer>>([]);
-  const [load, setLoad] = useState(true);
-  useEffect(() => {
-    let mounted = true;
-    console.log('useEffect');
-    if (mounted) {
-      fetch('http://192.168.13.5:3000/getComputers')
-        .then(response => {
-          response.json()
-            .then(data => {
-              setComputers(data)
-              setLoad(false);
-            });
-        })
-    }
-    return () => { mounted = false }
-  }, [])
+  const {computers,load} = useComputers()
   return (
     <div className={styles.container}>
       <Head>
