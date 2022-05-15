@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Computer} from '../../types/index';
+import Loading from '../Loading';
 
 
 export default function Card({computer}:{computer:Computer}){
+    const [load,setLoad] = useState(false);
     return(
         <div className='computer-card'>
             <div className='container'>
-                <div className='row'>
+                <div className='row align-items-center'>
                     <div className='col-md-10'>
                         <h2>{computer.Name}</h2>
                     </div>
@@ -33,6 +35,17 @@ export default function Card({computer}:{computer:Computer}){
                     </div>
                     <div className='col-md-9'>
                         {computer.Mac}
+                    </div>
+                </div>
+                <div className='row h-100'>
+                    <div className='col-md-12 button-container'>
+                        <button onClick={(e:any)=>{
+                            setLoad(true);
+                            computer.WakeUp(computer)
+                            .then(()=>setLoad(false))
+                            }} type="button" className="btn btn-success">
+                            {load ? 'Wake Up...':'Wake Up'}
+                                </button>
                     </div>
                 </div>
             </div>

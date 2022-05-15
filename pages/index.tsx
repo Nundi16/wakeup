@@ -6,9 +6,10 @@ import Card from '../components/Card'
 import { Computer } from '../types/index'
 import { useEffect, useState } from 'react'
 import useComputers from '../hooks/useComputers'
+import Loading from '../components/Loading'
 
 const Home: NextPage = () => {
-  const {computers,load} = useComputers()
+  const { computers, load } = useComputers()
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {load ? '' :
+        {load ? <Loading showcaption={true}></Loading> :
           computers.map(c => (
             <Card key={c.Ip} computer={c}></Card>
           ))

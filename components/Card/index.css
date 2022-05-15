@@ -28,3 +28,14 @@
     background-color: green;
     box-shadow: 0px 0px 5px green;
 }
+
+.computer-card .button-container {
+    display: flex;
+    height: 100px;
+    align-items: flex-end;
+}
+
+.computer-card .button-container button {
+    margin-left: auto;
+    width: 110px;
+}
