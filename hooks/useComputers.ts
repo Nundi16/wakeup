@@ -18,7 +18,7 @@ export default function useComputers() {
                 setComputers(JSON.parse(message.data.toString())
                 .map((c: Computer) => { c.WakeUp = wakeUp; return c }))
             };
-            fetch('http://192.168.13.5:3000/getComputers')
+            fetch('http://192.168.13.5:3001/getComputers', { headers: { 'Access-Control-Allow-Origin': '*'}})
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -31,9 +31,10 @@ export default function useComputers() {
         return () => { mounted = false }
     }, [])
     const wakeUp = (c:Computer):Promise<Response> => {
-        return fetch('http://192.168.13.5:3000/wakeUp', {
+        return fetch('http://192.168.13.5:3001/wakeUp', {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin':'*'
             },
             method:'POST',
             body: JSON.stringify({computer:[c]})
